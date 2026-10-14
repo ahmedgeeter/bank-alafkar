@@ -1,0 +1,2538 @@
+/* ==========================================================================
+   بنك الأفكار التعليمي - نظام التصميم والهوية البصرية المؤسسية (Style System)
+   Institutional Sovereign Aesthetic: Deep Emerald, Navy & Warm Brass
+   ========================================================================== */
+
+:root {
+  /* ألوان الهوية السيادية والمؤسسية */
+  --color-primary: #062a22;        /* أخضر زيتي ملكي عميق */
+  --color-primary-light: #0d463a;  /* أخضر زمردي داكن */
+  --color-navy: #0a192f;           /* كحلي مؤسسي */
+  --color-navy-dark: #060f1e;      
+  
+  /* ألوان التمييز الذهبي والنحاسي */
+  --color-gold: #c59b27;           /* ذهبي نحاسي راقي */
+  --color-gold-hover: #b0871d;
+  --color-gold-light: #fef3c7;
+  --color-gold-subtle: rgba(197, 155, 39, 0.12);
+  
+  /* ألوان الخلفيات والسطوح */
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-muted: #f1f5f9;
+  
+  /* النصوص والتباين */
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #64748b;
+  --text-inverse: #ffffff;
+  
+  /* الحدود والظلال الهادئة */
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-gold: rgba(197, 155, 39, 0.35);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  
+  /* مسافات وزوايا */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* إعادة الضبط والقواعد الأساسية */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  direction: rtl;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ==========================================================================
+   الشريط الحكومي السيادي العلوي (Top Bar)
+   ========================================================================== */
+.gov-topbar {
+  background-color: var(--color-navy-dark);
+  color: #94a3b8;
+  font-size: 0.8125rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-flag {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.divider {
+  color: #475569;
+}
+
+.topbar-live-clock {
+  color: #fef08a;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-indicator {
+  width: 7px;
+  height: 7px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulseAnimation 1.5s infinite;
+}
+
+.secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   الهيدر والنافيجيشن (Header)
+   ========================================================================== */
+.main-header {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 82px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-emblem {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: var(--color-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(6, 42, 34, 0.2);
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  position: relative;
+}
+
+.emblem-small {
+  width: 36px;
+  height: 36px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.3px;
+}
+
+.logo-sub {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* الأزرار (Buttons) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px rgba(6, 42, 34, 0.18);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 42, 34, 0.3);
+}
+
+.btn-glow {
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  box-shadow: 0 0 15px rgba(197, 155, 39, 0.2);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 24px rgba(197, 155, 39, 0.35);
+}
+
+.btn-outline {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-inverse);
+  border-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+.btn-gold-outline {
+  background-color: transparent;
+  color: #fef08a;
+  border-color: var(--color-gold);
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-gold-outline:hover {
+  background-color: var(--color-gold);
+  color: #000000;
+}
+
+.btn-lg {
+  padding: 14px 26px;
+  font-size: 1.0625rem;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   القسم الرئيسي (Hero Section) مع الخلفية السينمائية المتحركة
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-primary) 55%, #031813 100%);
+  color: var(--text-inverse);
+  padding: 70px 0 90px;
+  overflow: hidden;
+}
+
+/* خلفية الفيديو السينمائي المتحركة للطفل والرائد المبتكر */
+.hero-cinematic-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cinematic-backdrop-img {
+  position: absolute;
+  top: -6%;
+  right: -6%;
+  width: 112%;
+  height: 112%;
+  background-image: url('assets/innovators_bg.jpg');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  filter: contrast(120%) saturate(125%) brightness(0.95);
+  animation: cinematicBreath 22s ease-in-out infinite alternate;
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cinematicBreath {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.04) translate(-1.5%, 1%); }
+  100% { transform: scale(1.02) translate(1%, -1.2%); }
+}
+
+.ambient-motion-canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.cinematic-vignette {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at 45% 45%, rgba(6, 42, 34, 0.15) 0%, rgba(6, 15, 30, 0.8) 70%, rgba(6, 15, 30, 0.98) 100%);
+  z-index: 3;
+}
+
+.cinematic-light-sweep {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at 50% 50%, transparent 0deg, rgba(197, 155, 39, 0.05) 40deg, transparent 80deg);
+  animation: lightSweep 24s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes lightSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-pattern-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(rgba(197, 155, 39, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 6;
+}
+
+.hero-content {
+  text-align: right;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--color-gold-light);
+  margin-bottom: 20px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(197, 155, 39, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0); }
+}
+
+.hero-headline {
+  font-size: 3.125rem;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-lead {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 36px;
+}
+
+.hero-lead strong {
+  color: #fef08a;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px 16px;
+  border-radius: var(--radius-lg);
+}
+
+.metric-card {
+  text-align: center;
+}
+
+.metric-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fef08a;
+  margin-bottom: 2px;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   مجسم بطاقة التوثيق الحية في الهيرو (Interactive Preview Card)
+   ========================================================================== */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.interactive-preview-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(197, 155, 39, 0.45);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(197, 155, 39, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.interactive-preview-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(197, 155, 39, 0.25);
+}
+
+.preview-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.p-flag {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.p-badge {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--color-gold-light);
+}
+
+.p-gold-stamp {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--color-gold), #92400e);
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(197, 155, 39, 0.4);
+}
+
+.preview-ref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-bottom: 14px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.p-ref-label {
+  color: #94a3b8;
+}
+
+.p-ref-val {
+  color: #fef08a;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: monospace;
+}
+
+.preview-title-box {
+  margin-bottom: 20px;
+}
+
+.p-track-tag {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.p-title-text {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.preview-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.p-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-lbl {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+.pm-val {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.text-gold-glow {
+  color: #fef08a !important;
+  text-shadow: 0 0 10px rgba(254, 240, 138, 0.5);
+}
+
+.text-mono {
+  font-family: monospace;
+}
+
+.preview-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+}
+
+.p-qr-box {
+  color: #fef08a;
+}
+
+.p-footer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-status-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  color: #34d399;
+  font-weight: 700;
+}
+
+.pulse-green {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulseGreen 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.p-hash-preview {
+  font-size: 0.625rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   قسم المسارات الثنائية (Dual Tracks)
+   ========================================================================== */
+.tracks-section {
+  padding: 90px 0;
+  background-color: var(--bg-body);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+
+.section-badge {
+  display: inline-block;
+  background-color: var(--color-gold-subtle);
+  color: #92400e;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-gold);
+}
+
+.section-title {
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.track-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.track-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-gold);
+}
+
+.card-youth {
+  border-top: 5px solid #0284c7;
+}
+
+.card-adult {
+  border-top: 5px solid var(--color-primary);
+}
+
+.track-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.track-badge {
+  background-color: var(--bg-muted);
+  color: var(--text-main);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.card-youth .track-badge {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.card-adult .track-badge {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.track-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-youth .track-icon-wrapper {
+  background-color: #f0f9ff;
+  color: #0284c7;
+}
+
+.card-adult .track-icon-wrapper {
+  background-color: #ecfdf5;
+  color: var(--color-primary);
+}
+
+.track-title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.track-age {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.track-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.track-features {
+  list-style: none;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.track-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.card-youth .track-features li svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.card-adult .track-features li svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.track-footer {
+  margin-top: auto;
+}
+
+.btn-track {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-track-youth {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-track-youth:hover {
+  background-color: #0369a1;
+}
+
+.btn-track-adult {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-track-adult:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   قسم حاسبة الأرباح وعوائد الملكية الفكرية (Royalty Calculator)
+   ========================================================================== */
+.calculator-section {
+  padding: 90px 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.calculator-wrapper {
+  background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 50px;
+  box-shadow: var(--shadow-xl);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.calc-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.calc-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.control-group {
+  margin-bottom: 30px;
+}
+
+.control-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.control-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.control-val-display {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.custom-range {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.range-limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+.calc-tip-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  color: #166534;
+  line-height: 1.5;
+}
+
+.calc-results-card {
+  background: linear-gradient(135deg, var(--color-navy-dark), var(--color-primary));
+  color: #ffffff;
+  padding: 36px 32px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  box-shadow: var(--shadow-xl);
+}
+
+.results-heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.result-highlight-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(197, 155, 39, 0.3);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.rh-label {
+  display: block;
+  font-size: 0.8125rem;
+  color: #cbd5e1;
+  margin-bottom: 4px;
+}
+
+.rh-value {
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.rh-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-gold-light);
+}
+
+.breakdown-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.bd-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.bd-label {
+  color: #94a3b8;
+}
+
+.bd-val {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.bd-pct {
+  color: #38bdf8;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   قسم رحلة الفكرة (Workflow Section)
+   ========================================================================== */
+.journey-section {
+  padding: 90px 0;
+  background-color: var(--bg-body);
+}
+
+.journey-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.step-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.step-num {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: rgba(6, 42, 34, 0.12);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.step-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   معرض الأفكار التفاعلي المعتمد (Live Showcase)
+   ========================================================================== */
+.showcase-section {
+  padding: 90px 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.showcase-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: var(--bg-body);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.idea-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-gold);
+}
+
+.ic-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.ic-ref {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #92400e;
+  font-weight: 700;
+  background-color: var(--color-gold-light);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.ic-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.badge-youth {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-adult {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+.ic-title {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.ic-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.ic-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ic-author {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   قسم مصفوفة حوكمة التقييم للجان التحكيم (Rubric Section)
+   ========================================================================== */
+.rubric-section {
+  padding: 90px 0;
+  background-color: var(--bg-body);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.rubric-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.rubric-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 12px 0 16px;
+}
+
+.rubric-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.rubric-criteria-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.criteria-item {
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.cr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+}
+
+.cr-weight {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cr-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #f1f5f9;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.cr-fill {
+  height: 100%;
+  background-color: #0284c7;
+  border-radius: 3px;
+}
+
+.fill-gold {
+  background-color: var(--color-gold);
+}
+
+.fill-green {
+  background-color: #10b981;
+}
+
+.cr-text {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.rubric-preview-card {
+  background: linear-gradient(135deg, var(--color-primary), #051c16);
+  color: #ffffff;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--border-gold);
+  box-shadow: var(--shadow-xl);
+}
+
+.judges-badge {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.jp-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fef08a;
+  margin-bottom: 14px;
+}
+
+.jp-quote {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.jp-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.jps-num {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fef08a;
+}
+
+.jps-lbl {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+.sig-name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.sig-dep {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-gold-light);
+}
+
+/* ==========================================================================
+   قسم استمارة التوثيق (Deposit Form Section)
+   ========================================================================== */
+.deposit-section {
+  padding: 90px 0;
+  background-color: #f1f5f9;
+}
+
+.deposit-wrapper {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.deposit-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.badge-gold {
+  display: inline-block;
+  background-color: var(--color-gold-light);
+  color: #854d0e;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.deposit-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.deposit-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.deposit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-step-box {
+  background-color: #fafbfc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.step-badge-indicator {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-badge-indicator::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* اختيار المسار بالراديو */
+.track-selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.track-radio-label {
+  display: block;
+  border: 2px solid var(--border-subtle);
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.track-radio-label input[type="radio"] {
+  display: none;
+}
+
+.track-radio-label.active {
+  border-color: var(--color-primary);
+  background-color: #f0fdf4;
+}
+
+.radio-card-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.radio-icon {
+  font-size: 1.75rem;
+}
+
+.radio-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.radio-sub {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+/* عناصر الإدخال */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.required {
+  color: #dc2626;
+}
+
+.optional {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(6, 42, 34, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+/* رفع الملفات */
+.file-drop-area {
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.file-drop-area:hover {
+  border-color: var(--color-primary);
+  background-color: #f8fafc;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.drop-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* الميثاق القانوني والتشيك بوكس */
+.legal-charter-box {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.charter-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #92400e;
+  font-size: 0.9375rem;
+  margin-bottom: 8px;
+}
+
+.charter-text {
+  font-size: 0.8125rem;
+  color: #78350f;
+  line-height: 1.6;
+}
+
+.checkbox-wrapper {
+  margin-top: 12px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.checkbox-label-text {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* زر التقديم */
+.form-submit-wrapper {
+  text-align: center;
+}
+
+.btn-submit-lg {
+  width: 100%;
+  padding: 16px 28px;
+  font-size: 1.125rem;
+  background: linear-gradient(135deg, var(--color-primary), #0a3d31);
+}
+
+.btn-submit-lg:hover {
+  background: linear-gradient(135deg, #093c30, #0d463a);
+}
+
+.submit-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   سجل الأفكار المودعة (Registry Table Section)
+   ========================================================================== */
+.registry-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.registry-table-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.registry-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+  font-size: 0.875rem;
+}
+
+.registry-table th {
+  background-color: #f8fafc;
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.registry-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.registry-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+.badge-status-registered {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ecfdf5;
+  color: #065f46;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-track-tbl-youth {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.badge-track-tbl-adult {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   الفوتر (Footer)
+   ========================================================================== */
+.main-footer {
+  background-color: var(--color-navy-dark);
+  color: #94a3b8;
+  padding: 70px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: #fef08a;
+  transform: translateX(-3px);
+}
+
+.footer-badge-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-tag {
+  display: inline-block;
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.tag-desc {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  font-size: 0.8125rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legal-mini-links {
+  display: flex;
+  gap: 8px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   ميزة الإبهار الأولى: شهادة الإيداع الرقمي الفورية (Modal Certificate)
+   ========================================================================== */
+.certificate-modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(6, 15, 30, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.certificate-modal-overlay.active {
+  display: flex;
+}
+
+.certificate-modal-box {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 840px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cert-toolbar {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fef08a;
+}
+
+.cert-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-cert-print {
+  background-color: var(--color-gold);
+  color: #000000;
+  border: none;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-cert-print:hover {
+  background-color: var(--color-gold-hover);
+}
+
+.btn-cert-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* جسم الشهادة الرسمي الفاخر */
+.official-certificate-container {
+  padding: 48px;
+  background-color: #ffffff;
+  position: relative;
+  border: 12px solid #ffffff;
+  outline: 2px solid var(--color-gold);
+  outline-offset: -8px;
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cert-gov-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-state {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.cert-dep {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.cert-track-type {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  width: fit-content;
+}
+
+.cert-emblem-center {
+  text-align: center;
+}
+
+.cert-gold-seal {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-primary), #0c4338);
+  color: var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);
+  border: 2px solid var(--color-gold);
+}
+
+.cert-code-side {
+  text-align: left;
+  direction: ltr;
+}
+
+.code-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.code-value {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 1px;
+}
+
+.cert-status-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  color: #047857;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.cert-divider-line {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  margin-bottom: 24px;
+}
+
+.cert-main-title {
+  text-align: center;
+  font-size: 1.625rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.cert-intro {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.cert-data-grid {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--border-subtle);
+  padding-bottom: 8px;
+  font-size: 0.9375rem;
+}
+
+.data-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.d-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.d-val {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cert-idea-highlight {
+  color: #0369a1;
+  font-size: 1rem;
+}
+
+.d-timestamp {
+  font-family: monospace;
+  direction: ltr;
+}
+
+.text-gold {
+  color: #b45309;
+}
+
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.qr-signature-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.qr-placeholder {
+  width: 74px;
+  height: 74px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.qr-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.qr-hash {
+  font-size: 0.6875rem;
+  font-family: monospace;
+  color: var(--text-light);
+  direction: ltr;
+}
+
+.official-stamp-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.circular-stamp {
+  width: 90px;
+  height: 90px;
+  border: 2px dashed #b91c1c;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #b91c1c;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+}
+
+.stamp-top {
+  font-size: 0.5625rem;
+  font-weight: 800;
+}
+
+.stamp-mid {
+  font-size: 0.6875rem;
+  font-weight: 900;
+  border-top: 1px solid #b91c1c;
+  border-bottom: 1px solid #b91c1c;
+  padding: 1px 0;
+}
+
+.stamp-bot {
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+
+.signature-line {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid #94a3b8;
+  padding-top: 4px;
+  width: 140px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   دعم الطباعة (Print Media Queries)
+   ========================================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .certificate-modal-overlay,
+  .certificate-modal-overlay * {
+    visibility: visible;
+  }
+
+  .certificate-modal-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .cert-toolbar {
+    display: none !important;
+  }
+
+  .certificate-modal-box {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .official-certificate-container {
+    padding: 24px;
+    border: 4px solid #c59b27;
+  }
+}
+
+/* ==========================================================================
+   التجاوب مع الشاشات والموبايل (Responsive Breakpoints)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+  .showcase-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rubric-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    padding: 16px 0;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .main-nav {
+    display: none;
+  }
+  .hero-headline {
+    font-size: 2.125rem;
+  }
+  .hero-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tracks-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey-steps {
+    grid-template-columns: 1fr;
+  }
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .track-selector-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid-2, .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .calculator-wrapper {
+    padding: 24px;
+  }
+  .deposit-wrapper {
+    padding: 24px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .official-certificate-container {
+    padding: 20px;
+  }
+  .cert-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .cert-code-side {
+    text-align: center;
+  }
+  .cert-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* ==========================================================================
+   الميزات الحركية المتقدمة (Advanced FinTech Animations)
+   ========================================================================== */
+
+/* 1. شريط نبض الأفكار المباشر (Real-Time Idea Stream Ticker) */
+.live-ticker-bar {
+  background: linear-gradient(90deg, #061726 0%, #062a22 50%, #061726 100%);
+  border-top: 1px solid rgba(197, 155, 39, 0.35);
+  border-bottom: 1px solid rgba(197, 155, 39, 0.35);
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.ticker-badge-header {
+  background: var(--color-navy-dark);
+  color: var(--color-gold-light);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-left: 2px solid var(--color-gold);
+  z-index: 2;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.ticker-live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulseGreen 1.2s infinite;
+}
+
+.ticker-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 36px;
+  white-space: nowrap;
+  animation: tickerSlide 35s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+}
+
+.ti-tag {
+  background: rgba(2, 132, 199, 0.25);
+  color: #38bdf8;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.ti-tag.ti-adult {
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+}
+
+.ti-code {
+  color: #fef08a;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+/* 2. خط مسار الفكرة المتدفق في قسم الرحلة (Flowing Glow Circuit in Journey) */
+.journey-steps {
+  position: relative;
+}
+
+@media (min-width: 993px) {
+  .journey-steps::before {
+    content: '';
+    position: absolute;
+    top: 48px;
+    right: 12%;
+    left: 12%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(6, 42, 34, 0.15) 0%, rgba(197, 155, 39, 0.4) 50%, rgba(6, 42, 34, 0.15) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .journey-steps::after {
+    content: '';
+    position: absolute;
+    top: 47px;
+    right: 12%;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, #fef08a, var(--color-gold), transparent);
+    border-radius: 999px;
+    box-shadow: 0 0 12px var(--color-gold);
+    z-index: 2;
+    animation: photonPulse 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes photonPulse {
+  0% { right: 12%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { right: 85%; opacity: 0; }
+}
+
+.step-card {
+  z-index: 3;
+}
+
+/* 3. تأثير التفاعل المغناطيسي والإضاءة الموجهة للكروت (Spotlight Card Glow) */
+.track-card, .idea-card, .step-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.track-card::before, .idea-card::before, .step-card::before {
+  content: '';
+  position: absolute;
+  top: var(--spotlight-y, -100px);
+  right: var(--spotlight-x, -100px);
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(197, 155, 39, 0.16) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(50%, -50%);
+  transition: opacity 0.3s;
+  opacity: 0;
+  z-index: 0;
+}
+
+.track-card:hover::before, .idea-card:hover::before, .step-card:hover::before {
+  opacity: 1;
+}
+
+.track-card > *, .idea-card > *, .step-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. الختم الذهبي التفاعلي ثلاثي الأبعاد للشهادة (Holographic Gold Foil) */
+.cert-gold-seal {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+}
+
+.cert-gold-seal::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
+  transform: rotate(35deg) translateY(-100%);
+  animation: holoShine 4s infinite ease-in-out;
+}
+
+@keyframes holoShine {
+  0% { transform: rotate(35deg) translateY(-120%); }
+  30% { transform: rotate(35deg) translateY(120%); }
+  100% { transform: rotate(35deg) translateY(120%); }
+}
+
+.official-certificate-container {
+  background-image: radial-gradient(var(--cert-mouse-x, 50%) var(--cert-mouse-y, 50%), rgba(254, 240, 138, 0.08) 0%, transparent 60%);
+}
+
+.circular-stamp {
+  animation: stampSlam 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes stampSlam {
+  0% { transform: scale(1.6) rotate(15deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-8deg); opacity: 0.85; }
+}
